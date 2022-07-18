@@ -12,10 +12,10 @@ class Inicio extends StatelessWidget {
       backgroundColor: Theme.of(context).primaryColorLight,
       appBar: AppBar(
         leading: IconButton(
-          icon: Icon(Icons.arrow_back, size: 25),
+          icon: const Icon(Icons.arrow_back, size: 25),
           onPressed: () => Navigator.of(context).pop(),
         ),
-        title: Text(
+        title: const Text(
           'INICIO',
           style: TextStyle(
             fontFamily: 'Montserrat',

@@ -12,8 +12,7 @@ class AppRoutes {
     'inicio': (BuildContext context) => const Inicio(),
     //Colaborador
     'inicio-colaborador': (BuildContext context) => const InicioColaborador(),
-    'info-colaborador': (BuildContext context) =>
-        const InformacionColaborador(),
+    'detalle': (BuildContext context) => const PageDetailView(),
     'asistencia': (BuildContext context) => const Asistencia(),
     'horario': (BuildContext context) => Horario(),
     //Rendicion de Gastos

@@ -1,0 +1,4 @@
+#Mon Jul 18 01:03:04 CLT 2022
+base.0=C\:\\Users\\mitzy\\OneDrive\\Escritorio\\LenguajesM2-main3\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
+renamed.0=classes.dex
+path.0=classes.dex

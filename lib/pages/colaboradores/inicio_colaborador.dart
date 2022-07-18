@@ -1,67 +1,34 @@
+import 'package:flutter_application_1/pages/colaboradores/page_detailview.dart';
+import 'package:flutter_application_1/pages/colaboradores/inicio_colaborador.dart';
+import 'package:flutter_application_1/providers/ejemplos_provider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/widgets/widgets.dart';
+import 'package:provider/provider.dart';
 
 class InicioColaborador extends StatelessWidget {
   const InicioColaborador({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
+    final listado = Provider.of<EjemplosProvider>(context);
     return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          '¡Bienvenido Juan!',
+        appBar: AppBar(
+          title: const Text("Lista de colaboradores"),
         ),
-        centerTitle: true,
-        backgroundColor: Theme.of(context).primaryColor,
-      ),
-      body: SingleChildScrollView(
-        child: ListBody(
-          children: [
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Image.network(
-                  'https://bionutrition.com.co/wp-content/uploads/2020/10/avatar-hombre-redondo.png',
-                  width: 90,
-                  height: 120,
-                ),
-                const Padding(
-                  padding: EdgeInsets.all(5),
-                  child: Text(
-                    'Hoy es viernes 20 de mayo',
-                    style: TextStyle(
-                      fontSize: 25,
-                    ),
-                  ),
-                ),
-                const Text_Button(
-                  navigation: 'info-colaborador',
-                  text: 'Mi Perfil',
-                ),
-              ],
-            ),
-            const Titulo_Informacion_Colaborador(
-              titulo: 'Noticias',
-              info: '',
-              redireccion: '',
-            ),
-            const MensajePerfilColaborador(
-                mensaje: 'La semana del 14 de abril no se trabaja!'),
-            const Titulo_Informacion_Colaborador(
-              titulo: 'Horario',
-              info: 'ver mas ...',
-              redireccion: 'horario',
-            ),
-            const MensajePerfilColaborador(
-                mensaje: 'Aqui va horario e informacion'),
-            const Titulo_Informacion_Colaborador(
-              titulo: 'Mi Asistencia',
-              info: 'Marcar Asistencia ...',
-              redireccion: 'asistencia',
-            ),
-          ],
-        ),
-      ),
-    );
+        body: ListView.separated(
+          itemCount: listado.ListadoHabilidadDisplay
+              .length, //tripulacion.length,//establece el tamaño
+          itemBuilder: (context, index) => ListTile(
+            leading: const Icon(Icons.people_rounded),
+            title: Text(listado.ListadoHabilidadDisplay[index]
+                .colaborador), //Text(tripulacion[index]),
+
+            trailing: const Icon(Icons.arrow_forward_ios_outlined),
+
+            onTap: () {
+              Navigator.pushNamed(context, 'detalle',
+                  arguments: listado.ListadoHabilidadDisplay[index]);
+            },
+          ),
+          separatorBuilder: (_, __) => const Divider(),
+        ));
   }
 }
